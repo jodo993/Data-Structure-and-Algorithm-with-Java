@@ -18,11 +18,9 @@ public class Homework3 {
     public static void findMissingNumber()
     {
         // Array One (First Test)
-        // n = 9, 9-1 = 8 [0,8]
+        // n = 9, 9-1 = 8, array is [0,8]
         int[] arrayOne = {2,6,0,1,4,3,5,8};         // Missing 7
-
-        // Get total of array (including missing number)
-        int totalOne = (9 * (9 - 1)) / 2;              
+        int totalOne = (9 * (9 - 1)) / 2;           // Get total of array (including missing number(0 to n-1))              
         
         // Loop through and subtract present numbers to find missing number
         for (int i = 0; i < arrayOne.length; i++)
@@ -31,10 +29,11 @@ public class Homework3 {
         }
         
         // Array Two (Second Test)
-        // n = 6
+        // n = 6, 6-1 = 5, array is [0,5]
         int[] arrayTwo = {5,3,1,2,0};                 // Missing 4
-        int totalTwo = (5 * (5 - 1)) / 2;
-        int arrayTwoTotal = 0;
+        int totalTwo = (6 * (6 - 1)) / 2;             // Get total of array (including missing number(0 to n-1))
+        
+        // Loop through and subtract present numbers to find missing number
         for (int i = 0; i < arrayTwo.length; i++)
         {
             totalTwo = totalTwo - arrayTwo[i];
@@ -62,9 +61,9 @@ public class Homework3 {
     public static void recursiveString()
     {
         String word = "cheeseburger";          // String to be reversed
-        String newWord = "";                // Holder for new string
-        int i = 1;                          // Keeps position of the letter
-        reverse(word, newWord, i);          // Call function to reverse string
+        String newWord = "";                   // Holder for new string
+        int i = 1;                             // Keeps position of the letter
+        reverse(word, newWord, i);             // Call function to reverse string
     }
     
     // C-5.18
@@ -82,20 +81,26 @@ public class Homework3 {
             }
             else
             {
-                System.out.println("Word is not a palindrome.");            // If the two letters dont match, display not palindrome
+                System.out.println(word + " is not a palindrome.");            // If the two letters dont match, display not palindrome
             }          
         }
         else
-            System.out.println("Word is a palindrome.");                    // If all letters matched, display palindrome
+            System.out.println(word + " is a palindrome.");                    // If all letters matched, display palindrome
     }
     
     // C-5.18
     public static void recursivePalindromes()
     {
+        // Test One Palindrome = True
         String word = "racecar";                // Word to check
         int start = 0;                          // Start position of the letter
         int end = word.length() - 1;            // Last letter in the word
         palindromeCheck(word, start, end);      // Call function to check
+        
+        // Test Two Palindrome = False
+        String word2 = "algebra";
+        end = word2.length() - 1;
+        palindromeCheck(word2, start, end);
     }
     
     // Main method
