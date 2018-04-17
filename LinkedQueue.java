@@ -80,31 +80,4 @@ public class LinkedQueue<E> implements Queue<E> {
   public String toString() {
     return list.toString();
   }
-  
-  public void concatenate(LinkedQueue Q2)
-  {
-      list.concatenate(Q2);
-  }
-  
-  public static void linkedQueueConcatenate()
-  {
-      LinkedQueue<Integer> Q = new LinkedQueue<>();
-      LinkedQueue<Integer> Q2 = new LinkedQueue<>();
-      
-      Q.enqueue(1);
-      Q.enqueue(3);
-      Q.enqueue(5);
-      Q2.enqueue(2);
-      Q2.enqueue(4);
-      Q2.enqueue(6);
-      
-      System.out.println("Q is: " + Q);
-      System.out.println("Q2 is: " + Q2);
-      Q.concatenate(Q2);
-  }
-  
-  public static void main(String[] args)
-  {
-      linkedQueueConcatenate();
-  }
 }

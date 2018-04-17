@@ -203,6 +203,19 @@ public class SinglyLinkedList<E> implements Cloneable {
     return h;
   }
 
+  public void concatenate(SinglyLinkedList<E> other)
+  {
+	  this.tail.setNext(other.head);
+
+	  this.tail = other.tail;
+
+	  this.size += other.size;
+
+	  other.head = null;
+	  other.tail = null;
+	  other.size = 0;
+ }
+
   /**
    * Produces a string representation of the contents of the list.
    * This exists for debugging purposes only.
@@ -218,24 +231,5 @@ public class SinglyLinkedList<E> implements Cloneable {
     }
     sb.append(")");
     return sb.toString();
-  }
-  
-  public void concatenateQueue(LinkedQueue Q2)
-  {
-      if (!Q2.isEmpty())
-      {
-          if (isEmpty())
-          {
-              head = Q2.head;
-              tail = Q2.tail;
-              size = Q2.size;
-          }
-          else
-          {
-              tail.setNext(Q2.head);
-              tail = Q2.tail;
-              size = size + Q2.size;
-          }
-      }
   }
 }
